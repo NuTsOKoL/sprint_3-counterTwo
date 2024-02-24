@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  sprint_3-counterTwo
-//
-//  Created by mac on 18.02.2024.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -16,7 +9,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var storyButtons: UITextView!
     
     var count = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +25,19 @@ class ViewController: UIViewController {
         return date
     }
     
+    private func counter() -> Int {
+        if count < 0 {
+            storyButtons.text += "\n\(currentDate()): попытка уменьшить значение счётчика ниже 0»"
+        } else {
+            count = counter()
+        }
+        return count
+    }
+    
     @IBAction private func minusTouchButton(_ sender: Any) {
         //        count.minValue = 0
+        
+        
         count = count - 1
         dataLabel.text = "\(count)"
         storyButtons.text += "\n\(currentDate()): значение изменено на \(count)"
