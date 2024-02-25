@@ -25,23 +25,14 @@ class ViewController: UIViewController {
         return date
     }
     
-    private func counter() -> Int {
+    @IBAction private func minusTouchButton(_ sender: Any) {
+        count = count - 1
         if count < 0 {
             storyButtons.text += "\n\(currentDate()): попытка уменьшить значение счётчика ниже 0»"
         } else {
-            count = counter()
+            dataLabel.text = "\(count)"
+            storyButtons.text += "\n\(currentDate()): значение изменено на \(count)"
         }
-        return count
-    }
-    
-    @IBAction private func minusTouchButton(_ sender: Any) {
-        //        count.minValue = 0
-        
-        
-        count = count - 1
-        dataLabel.text = "\(count)"
-        storyButtons.text += "\n\(currentDate()): значение изменено на \(count)"
-        
     }
     @IBAction private func plusTouchButton(_ sender: Any) {
         count = count + 1
